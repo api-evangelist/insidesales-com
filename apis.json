@@ -1,0 +1,60 @@
+{
+    "name": "InsideSales.com",
+    "description": "InsideSales.com provides you with a revolutionary lead tracking software to improve your sales lead management. Contact us today for a demo and sell more!",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/819-insidesales-com.jpg",
+    "tags": [
+        "api not found",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/insidesales-com\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "InsideSales.com",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/819-insidesales-com.jpg",
+            "humanURL": "http:\/\/www.insidesales.com\/developers",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/insidesales-com-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/insidesales-com-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "http:\/\/www.insidesales.com\/insider\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/www.insidesales.com\/insider\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/insidesales-com"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/insidesales-com"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/insidesales"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.insidesales.com\/developers"
+        }
+    ]
+}
