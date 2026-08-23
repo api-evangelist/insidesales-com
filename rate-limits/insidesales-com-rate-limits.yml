@@ -1,0 +1,49 @@
+generated: '2026-08-23'
+method: searched
+source: https://helpcenter.insidesales.com/playbooks/user-guide/playbooks-api-limiter/
+limit_count: 0
+note: >-
+  InsideSales publishes NO rate limits for its own API. The two rate-limit documents in the help
+  center both run the other direction: they describe how many calls Playbooks makes INTO the
+  customer's CRM (Salesforce / Microsoft Dynamics) and how to throttle that consumption, so they
+  govern the provider's egress against a third party's quota, not a consumer's ingress against
+  InsideSales. limit_count is 0 for that reason, and the outbound governor is recorded separately
+  below so the distinction is not lost.
+response_headers:
+  published: false
+  x_ratelimit: null
+  ratelimit: null
+  retry_after: null
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header contract is documented anywhere, and the
+    only API reference that could have carried one (ci-global-api.pdlmpapis.insidesales.com/apidoc/)
+    no longer resolves. An agent calling this API has no runtime backoff signal to read.
+exhaustion_status: null
+limits: []
+outbound_crm_governor:
+  name: Playbooks API Limiter
+  docs: https://helpcenter.insidesales.com/playbooks/user-guide/playbooks-api-limiter/
+  direction: outbound (Playbooks -> customer CRM)
+  default: 'off'
+  configurable: true
+  self_service: false
+  configured_by: >-
+    "contact XANT support and specify the number of API calls per time frame your organization
+    requires (e.g., 10 API calls per 5 minutes, 100 API calls per hour, or 1000 API calls per day)"
+  window: rolling, as short as 5 minutes
+  behaviour_on_exhaustion: >-
+    Playbooks stops consuming CRM API calls entirely until the window rolls over — record imports
+    stop, Robots stop running and CRM data sync stops. The docs say this "might cause errors with
+    Playbooks".
+  shipped: April 2021
+  note: >-
+    Published roadmap item ("In future releases, managers and admins will have the ability to set
+    their own API Limits, receive email warnings, and enable user notifications for API Limits")
+    that never shipped — the changelog ends July 2021.
+crm_consumption_reference:
+  docs: https://helpcenter.insidesales.com/playbooks/api-call-utilization/
+  note: >-
+    Published estimates of Playbooks' CRM API consumption, useful for capacity planning against a
+    Salesforce or Dynamics quota. Examples as published: 30 dials + 20 emails is approximately 105
+    API calls; adding one lead/contact is 3 API calls; Robots default to a 10-minute poll, which for
+    a 15-user team is roughly 2,560 calls/day.

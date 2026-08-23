@@ -1,0 +1,68 @@
+generated: '2026-08-23'
+method: searched
+source: https://helpcenter.insidesales.com/playbooks/call-recording-api/
+docs: https://helpcenter.insidesales.com/playbooks/call-recording-api/
+note: >-
+  Derived mechanically from OpenAPI was not possible — InsideSales publishes no machine-readable
+  contract (see conformance/insidesales-com-conformance.yml). This profile is read verbatim from the
+  company's own Call Recording API help article and the 9 July 2021 product update that introduced
+  the Call Recording Control API.
+summary:
+  types: [apiKey]
+  api_key_in: [unknown]
+  oauth2_flows: []
+  openid_connect: false
+  mutual_tls: false
+schemes:
+- name: PlaybooksCallRecordingAccessKey
+  type: apiKey
+  in: unknown
+  parameter_name: unknown
+  sources: [https://helpcenter.insidesales.com/playbooks/call-recording-api/]
+  issuance:
+    self_service: false
+    actor: Playbooks administrator
+    path: Playbooks Manager App > Settings > Calls > Call Recording > ADD KEY
+    note: >-
+      Only administrators can create a key. The docs do not publish which HTTP header or query
+      parameter carries the key — that detail lived only in the apiDoc.js reference at
+      ci-global-api.pdlmpapis.insidesales.com/apidoc/, which no longer resolves (DNS SERVFAIL,
+      probed 2026-08-23). The single Wayback capture of that reference (20210926063143) archived
+      only the empty apiDoc shell; api_data.js was never captured, so the parameter name is not
+      recoverable from any public source.
+  permissions:
+  - id: download-recordings
+    label: Allow this key to download recordings
+    grants: Retrieve a call recording by CDR ID.
+  - id: control-recordings
+    label: Allow this key to start/pause recordings
+    grants: Systematically start or stop recording on a live call.
+  permission_model:
+    minimum_permissions: 1
+    mutable_after_creation: false
+    rename_allowed: true
+    revocation: Delete the key from Playbooks Manager App > Settings > Calls > Call Recording.
+    note: >-
+      "Each key must have at least one permission to be created." Permissions cannot be changed once
+      the key is made; only the key name can be renamed. Revocation is deletion — there is no
+      published rotation or expiry mechanism, and no published key lifetime.
+  scope: >-
+    Organization-wide. The docs warn "anyone who has access to the key will have access to your call
+    recordings" — the key is not bound to a user, a rep, or a subset of recordings.
+resource_identifier:
+  name: CDR ID
+  full_name: Call Detail Record ID
+  description: >-
+    Unique identifier for each call placed within Playbooks. Read from the trailing id of the
+    Playbooks Call Recording field written back to the CRM, e.g.
+    https://callrecordings.insidesales.com?id=5858485
+  note: >-
+    For Salesforce tenants the Playbooks Call Recording field only exists if the Playbooks unmanaged
+    package is installed or the field is created manually.
+access_gate:
+  control_api: sales-gated
+  detail: >-
+    The 9 July 2021 product update that shipped the Call Recording Control API states plainly: "To
+    begin using this feature please contact your Customer Success Manager." The download half of the
+    API is self-serve for an administrator; the start/stop control half is not.
+  source: https://helpcenter.insidesales.com/releases/july-9th-2021-product-update/

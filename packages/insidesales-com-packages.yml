@@ -1,0 +1,77 @@
+generated: '2026-08-23'
+method: searched
+source: https://www.npmjs.com/package/insidesales-components
+note: >-
+  No first-party API client SDK exists for the Playbooks Call Recording API in any public registry
+  (npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io were all searched on
+  2026-08-23). What InsideSales does publish is a first-party React UI component library, catalogued
+  below. Because it is a front-end component library and not a client for the company's API, NO
+  `SDKs` pointer is emitted in apis.yml — emitting one would credit the provider with an API SDK it
+  does not ship. See components/insidesales-com-components.yml for the component surface itself.
+  PyPI `xant` is an unrelated package (spatial antenna analysis, author Rob Scheeler) and is NOT
+  this company's.
+packages:
+- language: javascript
+  registry: npm
+  name: insidesales-components
+  url: https://www.npmjs.com/package/insidesales-components
+  repository: https://github.com/InsideSalesOfficial/insidesales-components
+  install: npm install insidesales-components
+  official: true
+  kind: ui-components
+  version: 2.41.1
+  published: '2020-10-01'
+  note: >-
+    "A set of UI components built with React and Styled-Components used on products by
+    InsideSales.com." Published from the company's own GitHub org (InsideSalesOfficial). Latest
+    release predates the August 2021 Aurea acquisition by ten months; the backing repository was
+    last pushed 2020-11-13. Still drawing ~957 downloads/month (npm, last 30 days to 2026-08-22).
+- language: javascript
+  registry: npm
+  name: insidesales-components-dev
+  url: https://www.npmjs.com/package/insidesales-components-dev
+  repository: https://github.com/InsideSalesOfficial/insidesales-components
+  install: npm install insidesales-components-dev
+  official: true
+  kind: ui-components
+  version: 1.0.0
+  published: '2017-09-12'
+  note: >-
+    Development channel of the same component library; npm homepage resolves to the company's own
+    GitHub Pages org (insidesalesofficial.github.io/ui-components). Abandoned since 2017.
+- language: elm
+  registry: none
+  name: isdc-elm-ui
+  url: https://github.com/InsideSalesOfficial/isdc-elm-ui
+  repository: https://github.com/InsideSalesOfficial/isdc-elm-ui
+  official: true
+  kind: ui-components
+  version: null
+  published: null
+  note: >-
+    "Elm functions, color palettes and typography for the InsideSales.com UI." Distributed only as a
+    GitHub repository in the company's own org — checked 2026-08-23 and it is not published to the
+    Elm package registry or to npm (registry.npmjs.org/isdc-elm-ui returns 404), so there is no
+    registry metadata endpoint to read a version or release date from. Repository last pushed
+    2020-06-17.
+excluded:
+- name: isdc-components-test
+  registry: npm
+  reason: >-
+    Published from a personal fork (github.com/austinknight/insidesales-components), not the
+    InsideSalesOfficial org. Not treated as first-party.
+- name: ui-components-test
+  registry: npm
+  reason: No repository field and no first-party attribution; provenance cannot be established.
+- name: xant
+  registry: pypi
+  reason: Unrelated project (spatial antenna analysis with xarray). Name collision only.
+registries_searched:
+- npm
+- pypi
+- maven-central
+- nuget
+- pkg.go.dev
+- rubygems
+- packagist
+- crates.io

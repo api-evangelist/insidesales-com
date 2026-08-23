@@ -64,5 +64,31 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-XANT (InsideSales.com) is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/insidesales-com_stock/
+InsideSales — branded XANT from 2019 until Aurea Software (ESW Capital) acquired the company in
+August 2021 and revived the original name — sells Playbooks, an AI-assisted sales engagement
+platform that layers cadence, automation, prioritization, scoring and call recording on top of a
+customer's existing CRM (Salesforce, Microsoft Dynamics, SAP) rather than replacing it.
+
+Its only publicly documented programmable surface is the **Playbooks Call Recording API**, an
+access-key protected service for downloading call recordings by Call Detail Record (CDR) ID and for
+starting/pausing recording from third-party applications. No machine-readable contract of any kind
+is published — no OpenAPI, AsyncAPI, GraphQL SDL, Postman collection, `.proto` or WSDL.
+
+**The developer surface is materially decayed.** Probed 2026-08-23:
+
+| Host | Role, per the company's own live docs | DNS |
+|---|---|---|
+| `api.insidesales.com` | API gateway | NXDOMAIN — dangling CNAME into a deleted AWS ELB (`tyk-gateway-103411294.us-east-1.elb.amazonaws.com`) |
+| `callrecordings.insidesales.com` | Host every call-recording URL is built on | SERVFAIL |
+| `ci-global-api.pdlmpapis.insidesales.com` | "API Documentation can be found here" | SERVFAIL |
+| `playbooksmanager.insidesales.com` | Where an admin mints the API access key | NODATA (CloudFront) |
+
+Product release notes stop at 2021-07-09, one month before the acquisition closed, and the Atlassian
+status page is titled "Deprecated InsideSales" — though its four Playbooks regional components still
+report operational, so the product is still running for existing tenants.
+
+- Website: https://www.insidesales.com/
+- Help center: https://helpcenter.insidesales.com/
+- Call Recording API: https://helpcenter.insidesales.com/playbooks/call-recording-api/
+- GitHub: https://github.com/InsideSalesOfficial
+- Status: https://status.insidesales.com/

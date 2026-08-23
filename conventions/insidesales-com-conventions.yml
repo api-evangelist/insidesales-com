@@ -1,0 +1,94 @@
+generated: '2026-08-23'
+method: searched
+source: https://helpcenter.insidesales.com/playbooks/call-recording-api/
+note: >-
+  There is no OpenAPI to derive from, so nothing here is inferred from a spec. Every field is either
+  read from the company's own help center or recorded as not-published. The single API reference
+  that would have carried the request/response conventions
+  (ci-global-api.pdlmpapis.insidesales.com/apidoc/) is unreachable — DNS SERVFAIL as of 2026-08-23 —
+  and the only Wayback capture of it archived an empty apiDoc.js shell with no api_data.js, so these
+  conventions are not recoverable from any public source.
+authentication:
+  style: api-key
+  detail: See authentication/insidesales-com-authentication.yml
+  transport: not-published
+idempotency:
+  supported: unknown
+  header: null
+  scope: null
+  retention: null
+  note: >-
+    Not documented. No Idempotency pointer is emitted in apis.yml — the provider publishes no
+    idempotency contract, and claiming one would be a fabrication. The write surface (start/pause
+    recording) is exactly the kind of operation where a retry contract matters.
+pagination:
+  style: not-applicable
+  note: >-
+    The only documented read operation retrieves one recording by CDR ID. No list or collection
+    endpoint is published, so there is no pagination surface.
+filtering: {supported: unknown}
+field_expansion: {supported: unknown}
+sparse_fields: {supported: unknown}
+metadata: {supported: unknown}
+request_tracing:
+  request_id_header: null
+  note: Not published.
+versioning:
+  style: none-published
+  detail: See lifecycle/insidesales-com-lifecycle.yml
+error_envelope:
+  format: not-published
+  rfc9457: false
+  note: >-
+    No error reference, no status-code table and no problem-details contract is published, so no
+    errors/ artifact is written for this provider. That is an absence, not an omission on our side.
+rate_limit_signaling:
+  headers: none-published
+  detail: See rate-limits/insidesales-com-rate-limits.yml
+content_types:
+  request: not-published
+  response: >-
+    Binary audio for a recording download is implied by the operation ("download call recordings")
+    but no media type is stated anywhere in the public docs.
+dry_run_mode:
+  supported: false
+  note: No sandbox, no test mode, no test tenant and no magic test values are published.
+reversibility:
+  applicable: true
+  grade: undocumented
+  credit: 0
+  note: >-
+    Playbooks has a real write surface — the Call Recording Control API can start and stop recording
+    on a live call — so reversibility is applicable and cannot be marked `na`. It is graded
+    `undocumented` rather than `documented`: no reversal operation, no undo, no window and no
+    retention statement is published for any write. NO WINDOW IS ASSERTED HERE, because none exists
+    to cite; inventing one on a call-recording compliance surface could cost a user a regulatory
+    breach rather than money.
+  write_surfaces:
+  - operation: start call recording
+    reversal: stop call recording
+    reversal_is_documented: false
+    window: null
+    docs: https://helpcenter.insidesales.com/releases/july-9th-2021-product-update/
+    note: >-
+      The pair is described as self-inverse in prose ("cause XANT to stop recording the call while
+      the credit card form is open, and then resume the recording when the credit card form is
+      closed") but this is a product narrative, not a reversal contract: the docs never say whether
+      the already-captured audio segment can be discarded, whether stopping mid-call truncates or
+      splits the recording, or within what window either action can be undone.
+  - operation: stop call recording
+    reversal: start call recording
+    reversal_is_documented: false
+    window: null
+  - operation: revoke access key (delete)
+    reversal: none
+    reversal_is_documented: false
+    window: null
+    note: >-
+      Key deletion is explicitly the revocation mechanism and is irreversible; a key's permissions
+      are also immutable after creation, so there is no corrective path short of minting a new key.
+cross_links:
+  authentication: authentication/insidesales-com-authentication.yml
+  lifecycle: lifecycle/insidesales-com-lifecycle.yml
+  rate_limits: rate-limits/insidesales-com-rate-limits.yml
+  conformance: conformance/insidesales-com-conformance.yml

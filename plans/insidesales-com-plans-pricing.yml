@@ -1,0 +1,23 @@
+generated: '2026-08-23'
+method: searched
+source: https://resources.insidesales.com/pricing/
+probed: '2026-08-23'
+http_status: 200
+plan_count: 0
+currency: null
+plans: []
+note: >-
+  InsideSales publishes no plans, no tiers, no list price and no seat price. The pricing page is a
+  contact-sales form; its full statement of pricing is, verbatim: "Our Sales Engagement Platform is
+  tailored to each company based on how they will use the solution. To learn more about pricing and
+  what you can expect, set up a meeting with our team to learn more." plan_count is 0 because the
+  provider genuinely publishes zero plans, not because none were found.
+free_tier: false
+trial: null
+usage_metering: null
+api_pricing:
+  published: false
+  note: >-
+    No pricing is attached to the Playbooks Call Recording API. Access to the control half of it is
+    routed through a Customer Success Manager rather than a price
+    (https://helpcenter.insidesales.com/releases/july-9th-2021-product-update/).

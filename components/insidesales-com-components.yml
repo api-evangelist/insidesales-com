@@ -1,0 +1,50 @@
+generated: '2026-08-23'
+method: searched
+source: https://insidesalesofficial.github.io/insidesales-components/storybook/
+summary: >-
+  InsideSales publishes one first-party client-side component surface: a React + styled-components
+  UI library used across the Playbooks products, distributed on npm and documented as a hosted
+  Storybook on the company's own GitHub Pages org. There is no embeddable/hosted widget, no drop-in
+  script tag and no embedded-dashboard product; this is a design-system library for building UIs,
+  not a customer-embeddable surface.
+families:
+- name: insidesales-components
+  kind: design-system-library
+  framework: React (styled-components)
+  package: insidesales-components
+  registry: npm
+  version: 2.41.1
+  published: '2020-10-01'
+  install: npm install insidesales-components
+  docs: https://insidesalesofficial.github.io/insidesales-components/storybook/
+  repository: https://github.com/InsideSalesOfficial/insidesales-components
+  official: true
+  status: unmaintained
+  note: >-
+    Storybook returns HTTP 200 as of 2026-08-23. Library last published 2020-10-01, repository last
+    pushed 2020-11-13 — both predate the Aurea acquisition (August 2021).
+- name: isdc-elm-ui
+  kind: design-tokens-and-ui-functions
+  framework: Elm
+  package: null
+  registry: null
+  version: null
+  published: null
+  docs: https://github.com/InsideSalesOfficial/isdc-elm-ui
+  repository: https://github.com/InsideSalesOfficial/isdc-elm-ui
+  official: true
+  status: unmaintained
+  note: >-
+    Elm functions, color palettes and typography for the InsideSales.com UI. Source-only
+    distribution; not published to any package registry. Last pushed 2020-06-17.
+loaders: []
+browser_extensions:
+- name: Playbooks Chrome Extension
+  url: https://chromewebstore.google.com/detail/playbooks/honkfenocfnhdbpakgenabnlnpgccadm
+  status: removed
+  probed: '2026-08-23'
+  http_status: 200
+  note: >-
+    The company's help center still links this extension ID. The Chrome Web Store answers 200 but
+    the listing renders with no title and no extension body (redirects to .../detail/empty-title/…),
+    i.e. the item has been unpublished. Recorded as a dead distribution channel, not as a component.

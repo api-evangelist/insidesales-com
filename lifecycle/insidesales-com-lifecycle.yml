@@ -1,0 +1,93 @@
+generated: '2026-08-23'
+method: searched
+source: https://helpcenter.insidesales.com/release-notes/
+versioning:
+  scheme: none-published
+  current: null
+  docs: null
+  note: >-
+    No API versioning policy of any kind is published. The Playbooks product itself carried build
+    numbers in 2019 release notes (e.g. "Release Notes 1.3043.0") but that practice stopped and was
+    never applied to the Call Recording API.
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: >-
+    No deprecation policy, no Sunset/Deprecation header documentation (RFC 8594), and no published
+    notice period. This matters here more than usual — see decommissioned_surfaces below, where
+    documented API hosts have been removed from DNS with no deprecation notice on the pages that
+    still link to them.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    Marketing pages claim "near-perfect uptime" (insidesales.com/integrations/) but no SLA document
+    or numeric uptime target is published.
+status_page: https://status.insidesales.com/
+status_page_detail:
+  platform: Atlassian Statuspage
+  api: https://status.insidesales.com/api/v2/summary.json
+  probed: '2026-08-23'
+  http_status: 200
+  page_name: Deprecated InsideSales
+  indicator: none
+  description: All Systems Operational
+  components:
+  - {name: Playbooks Global Region, status: operational, updated_at: '2025-10-21'}
+  - {name: Playbooks North America Region, status: operational, updated_at: '2025-10-21'}
+  - {name: Playbooks EU Region, status: operational, updated_at: '2025-02-02'}
+  - {name: Playbooks Asia Pacific Region, status: operational, updated_at: '2025-02-02'}
+  note: >-
+    The status page is live and machine-readable via the standard Statuspage v2 JSON API, and all
+    four Playbooks regions report operational — so the product itself is still running for existing
+    tenants. The page's own title, however, is "Deprecated InsideSales", which is the operator's own
+    label, not ours.
+change_log: https://helpcenter.insidesales.com/release-notes/
+decommissioned_surfaces:
+  probed: '2026-08-23'
+  note: >-
+    Three hosts named in the company's own live documentation no longer resolve. These were probed
+    against 1.1.1.1 and 8.8.8.8 and confirmed at the authoritative Route 53 nameservers for
+    insidesales.com.
+  hosts:
+  - host: api.insidesales.com
+    dns: NXDOMAIN
+    record: CNAME tyk-gateway-103411294.us-east-1.elb.amazonaws.com
+    detail: >-
+      The CNAME survives; the AWS ELB it points at has been deleted (NXDOMAIN). A dangling CNAME
+      into a deleted elastic load balancer is also a subdomain-takeover vector, and is reported to
+      the provider as such.
+  - host: callrecordings.insidesales.com
+    dns: SERVFAIL
+    detail: >-
+      The host every Playbooks Call Recording URL is built on, per the live help article
+      https://helpcenter.insidesales.com/playbooks/call-recording-api/ (example given there:
+      https://callrecordings.insidesales.com?id=5858485).
+  - host: ci-global-api.pdlmpapis.insidesales.com
+    dns: SERVFAIL
+    detail: >-
+      The API reference. The live help article links it as "API Documentation can be found here".
+      The parent zone pdlmpapis.insidesales.com also SERVFAILs, so the whole delegation is broken.
+  - host: playbooksmanager.insidesales.com
+    dns: NODATA
+    record: CNAME d3d22imzfrt4mj.cloudfront.net
+    detail: >-
+      The Playbooks Manager App — where an administrator mints a Call Recording API access key.
+      CNAME resolves to a CloudFront distribution that returns no address record.
+release_cadence:
+  last_entry: '2021-07-09'
+  last_entry_url: https://helpcenter.insidesales.com/releases/july-9th-2021-product-update/
+  first_entry: '2019-01-11'
+  cadence_when_active: roughly monthly
+  note: >-
+    Product updates ran roughly monthly from January 2019 to July 2021 and then stopped. Aurea
+    Software completed its acquisition of XANT in August 2021, one month after the final entry. The
+    help center footer still reads "Copyright (c) 2022 InsideSales".
+ownership:
+  operator: Aurea Software (ESW Capital)
+  history: >-
+    InsideSales.com renamed itself XANT in 2019; Aurea completed the acquisition of XANT in August
+    2021 and retired the XANT brand, reviving the InsideSales name. The live site still carries an
+    "XANT is now InsideSales" banner and the privacy statement it links is Aurea's
+    (aurea.com/legal/privacy-statement).
+deprecated_operations: []

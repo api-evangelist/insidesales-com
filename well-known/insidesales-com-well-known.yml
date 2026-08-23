@@ -1,0 +1,96 @@
+generated: '2026-08-23'
+method: probed
+source: >-
+  Direct HTTP probe of every live InsideSales host on 2026-08-23 with a browser User-Agent.
+hit_count: 0
+summary: >-
+  InsideSales serves no /.well-known discovery surface of its own. Every canonical path 404s on all
+  three WP Engine-hosted origins (www., helpcenter., resources.). The single 200 in this probe is
+  ATLASSIAN'S security.txt, served by the hosted Statuspage platform on the CNAME'd
+  status.insidesales.com subdomain — its own Canonical field points at www.atlassian.com — so it is
+  recorded here as third-party and deliberately NOT credited to InsideSales, and NO WellKnown /
+  SecurityTxt / Security pointer is emitted in apis.yml. The company's API-bearing hosts
+  (api.insidesales.com, callrecordings.insidesales.com, ci-global-api.pdlmpapis.insidesales.com)
+  could not be probed at all: they no longer resolve in DNS. See
+  security/insidesales-com-domain-security.yml.
+hosts:
+- host: https://www.insidesales.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  soft_404_control:
+    path: /.well-known/zz-ae-control-probe-9x7q
+    status: 404
+    bytes: 126020
+    note: Control probe confirms the origin returns a genuine 404, not a catch-all 200.
+- host: https://helpcenter.insidesales.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  soft_404_control:
+    path: /.well-known/zz-ae-control-probe-9x7q
+    status: 404
+    bytes: 72542
+    note: Control probe confirms a genuine 404.
+- host: https://resources.insidesales.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  soft_404_control:
+    path: /.well-known/zz-ae-control-probe-9x7q
+    status: 404
+    bytes: 67787
+    note: Control probe confirms a genuine 404.
+- host: https://status.insidesales.com
+  operated_by: Atlassian Statuspage (CNAME -> x0tbll1p7l51.stspg-customer.com)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: >-
+      Served, but not a real doc for this company: it is Atlassian's own PGP-signed security.txt
+      (Contact security@atlassian.com, Canonical https://www.atlassian.com/.well-known/security.txt),
+      emitted by the hosted Statuspage platform for every customer subdomain. Deliberately not
+      saved and not credited to InsideSales.
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+  soft_404_control:
+    path: /.well-known/zz-ae-control-probe-9x7q
+    status: 404
+    bytes: 0
+    note: Control probe confirms a genuine 404.
+unreachable_hosts:
+- host: api.insidesales.com
+  dns: NXDOMAIN
+  detail: >-
+    CNAME to tyk-gateway-103411294.us-east-1.elb.amazonaws.com, which is itself NXDOMAIN — the
+    Tyk API gateway load balancer behind the company's API hostname has been deleted.
+- host: callrecordings.insidesales.com
+  dns: SERVFAIL
+  detail: The host the Call Recording API documentation publishes for recording URLs.
+- host: ci-global-api.pdlmpapis.insidesales.com
+  dns: SERVFAIL
+  detail: The host the Call Recording API documentation links as "API Documentation can be found here".

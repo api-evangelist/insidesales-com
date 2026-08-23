@@ -1,0 +1,76 @@
+generated: '2026-08-23'
+method: searched
+source: https://helpcenter.insidesales.com/release-notes/
+url: https://helpcenter.insidesales.com/release-notes/
+scheme: dated-product-update
+current_version: null
+format: human-readable HTML, one page per release, no feed and no machine-readable form
+feed: null
+entry_count_published: 36
+window: '2019-01-11 through 2021-07-09'
+status: dormant
+status_note: >-
+  The changelog has not been updated since 9 July 2021 — one month before Aurea Software completed
+  its acquisition of XANT. It is a real, dated, per-release changelog; it is simply no longer
+  running. Recorded as-is: an accurate empty cadence is data.
+entries:
+- version: null
+  date: '2021-07-09'
+  title: July 9th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/july-9th-2021-product-update/
+  breaking: false
+  additions:
+  - >-
+    Call Recording Control API — "A new set of APIs can be used to systematically start or stop a
+    call recording", positioned for PCI-style compliance (stop recording while a credit-card form
+    is open, resume after). Access gated: "To begin using this feature please contact your Customer
+    Success Manager."
+  - Calendar invite improvements — convert an email to a calendar invite; select a time from calendar view.
+  - Inbound Call Paths menus raised from 4 to 10 options.
+  - Computer-based Calling exits beta and becomes generally available.
+  - Call recording controls extended from outbound-only to inbound calls.
+- version: null
+  date: '2021-05-28'
+  title: May 28th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/may-28th-2021-product-update/
+  breaking: false
+  additions:
+  - Dynamic Rep Alerts — admin-authored notifications that fire when a rep loads a qualifying record.
+- version: null
+  date: '2021-05-07'
+  title: May 7th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/may-7th-2021-product-update/
+  breaking: false
+  additions:
+  - Local Calling Rule Compliance — state/zip-code calling rules that block a rep's dial when a record qualifies.
+- version: null
+  date: '2021-04-02'
+  title: April 2nd, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/april-2nd-2021-product-update/
+  breaking: false
+  additions:
+  - Enhanced Gmail Integration — Playbooks Email Templates and Email Snippets inside the Gmail compose window.
+- version: null
+  date: '2021-03-05'
+  title: March 5th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/march-5th-2021-product-update/
+- version: null
+  date: '2021-02-05'
+  title: February 5th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/february-5th-2021-product-update/
+- version: null
+  date: '2021-01-08'
+  title: January 8th, 2021 Product Update
+  url: https://helpcenter.insidesales.com/releases/january-8th-2021-product-update/
+- version: null
+  date: '2020-12-11'
+  title: December 11th, 2020 Product Update
+  url: https://helpcenter.insidesales.com/releases/december-11th-2020-product-update/
+- version: null
+  date: '2020-11-06'
+  title: November 6th, 2020 Product Update
+  url: https://helpcenter.insidesales.com/releases/november-6th-2020-product-update/
+- version: null
+  date: '2020-10-16'
+  title: October 16th, 2020 Product Update
+  url: https://helpcenter.insidesales.com/releases/october-16th-2020-product-update/
