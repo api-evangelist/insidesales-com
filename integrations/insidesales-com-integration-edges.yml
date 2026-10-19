@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/insidesales-com/integrations
 - https://zapier.com/apps/insidesales/integrations
@@ -9,14 +9,51 @@ source:
 - https://composio.dev/toolkits/insidesales-com
 - https://monid.ai/tools/insidesales-com
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/insidesales-com
+- https://crates.io/api/v1
 - https://monid.ai/tools/insidesales-com
 - https://n8n.io/integrations/insidesales-com/
 - https://n8n.io/integrations/insidesales/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/insidesales-com/integrations
 - https://zapier.com/apps/insidesales-xant-insidesales-com/integrations
 - https://zapier.com/apps/insidesales/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/insidesales-components
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: insidesales-components
+      version: 2.41.1
+      released: '2022-05-05'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/insidesales-components
+      repo_leg: github-org:insidesalesofficial
+      publisher_leg: email:insidesales.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates: []
