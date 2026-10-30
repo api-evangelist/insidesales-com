@@ -1,4 +1,4 @@
-# XANT (InsideSales.com)
+# InsideSales (XANT / InsideSales.com)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,31 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-InsideSales — branded XANT from 2019 until Aurea Software (ESW Capital) acquired the company in
-August 2021 and revived the original name — sells Playbooks, an AI-assisted sales engagement
-platform that layers cadence, automation, prioritization, scoring and call recording on top of a
-customer's existing CRM (Salesforce, Microsoft Dynamics, SAP) rather than replacing it.
+InsideSales — branded XANT from 2019 until Aurea Software (ESW Capital) acquired the company in August 2021 and revived the original name — sells Playbooks, an AI-assisted sales engagement platform that layers cadence, automation, prioritization, scoring and call recording on top of a customer's existing CRM (Salesforce, Microsoft Dynamics, SAP) rather than replacing it. Its only publicly documented programmable surface is the Playbooks Call Recording API, an access-key protected service for downloading call recordings by Call Detail Record (CDR) ID and for starting/pausing recording from third-party applications; the company also publishes a first-party React UI component library on npm and GitHub. The developer surface is materially decayed: the API reference host and the call-recording host named in the company's own documentation no longer resolve in DNS, product release notes stop in July 2021, and the Atlassian status page is titled "Deprecated InsideSales".
 
-Its only publicly documented programmable surface is the **Playbooks Call Recording API**, an
-access-key protected service for downloading call recordings by Call Detail Record (CDR) ID and for
-starting/pausing recording from third-party applications. No machine-readable contract of any kind
-is published — no OpenAPI, AsyncAPI, GraphQL SDL, Postman collection, `.proto` or WSDL.
+**Areas:** Company · Sales · Sales Engagement · Sales Automation · CRM · Call Recording · Artificial Intelligence · Salesforce · Microsoft Dynamics · Enterprise Software
 
-**The developer surface is materially decayed.** Probed 2026-08-23:
+## InsideSales (XANT / InsideSales.com) on APIs.io
 
-| Host | Role, per the company's own live docs | DNS |
-|---|---|---|
-| `api.insidesales.com` | API gateway | NXDOMAIN — dangling CNAME into a deleted AWS ELB (`tyk-gateway-103411294.us-east-1.elb.amazonaws.com`) |
-| `callrecordings.insidesales.com` | Host every call-recording URL is built on | SERVFAIL |
-| `ci-global-api.pdlmpapis.insidesales.com` | "API Documentation can be found here" | SERVFAIL |
-| `playbooksmanager.insidesales.com` | Where an admin mints the API access key | NODATA (CloudFront) |
+Everything profiled for InsideSales (XANT / InsideSales.com) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/insidesales-com/](https://apis.io/providers/insidesales-com/)** — or go straight to one of the APIs or properties below.
 
-Product release notes stop at 2021-07-09, one month before the acquisition closed, and the Atlassian
-status page is titled "Deprecated InsideSales" — though its four Playbooks regional components still
-report operational, so the product is still running for existing tenants.
+### APIs (1)
 
-- Website: https://www.insidesales.com/
-- Help center: https://helpcenter.insidesales.com/
-- Call Recording API: https://helpcenter.insidesales.com/playbooks/call-recording-api/
-- GitHub: https://github.com/InsideSalesOfficial
-- Status: https://status.insidesales.com/
+- [Playbooks Call Recording API](https://apis.io/apis/insidesales-com/playbooks-call-recording-api/) — Access-key protected HTTP API that lets an organization or a third-party application download call recordings produced by Playbooks, and — with the second…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Insidesales Com Authentication](https://apis.io/security/insidesales-com/insidesales-com-authentication/)
+- [Insidesales Com Domain Security](https://apis.io/security/insidesales-com/insidesales-com-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Insidesales Com Plans Pricing](https://apis.io/plans/insidesales-com/insidesales-com-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Insidesales Com Rate Limits](https://apis.io/rate-limits/insidesales-com/insidesales-com-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.insidesales.com/)
+- [Documentation](https://helpcenter.insidesales.com/)
+- [Getting started](https://helpcenter.insidesales.com/playbooks/getting-started/new-user/getting-started-with-playbooks/)
+- [Pricing](https://resources.insidesales.com/pricing/)
+- [Support](https://helpcenter.insidesales.com/contact/)
+- [Changelog](https://helpcenter.insidesales.com/release-notes/)
+- [Blog](https://www.insidesales.com/blog/)
+- [Compliance](https://resources.insidesales.com/commitment-to-gdpr-compliance/)
+- [Terms of service](https://resources.insidesales.com/terms/)
+- [Privacy policy](https://resources.insidesales.com/platform-privacy-policy/)
+- [GitHub](https://github.com/InsideSalesOfficial)
+- [Status](https://status.insidesales.com/)
+
+## API Evangelist rating
+
+**Kin Score 31.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 39.5 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/insidesales-com/](https://apis.io/providers/insidesales-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for InsideSales (XANT / InsideSales.com): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/insidesales-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
